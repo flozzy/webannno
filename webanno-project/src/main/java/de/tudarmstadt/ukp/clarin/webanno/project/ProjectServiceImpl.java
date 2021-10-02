@@ -1049,7 +1049,7 @@ public class ProjectServiceImpl
                 + "WHERE pp.project = p.id "
                 + "AND pp.user = :username AND (pp.level = :curator OR pp.level = :manager)"
                 + "ORDER BY p.name ASC";
-        List<Project> projects = entityManager.createQuery(query, Project.class)
+          return entityManager.createQuery(query, Project.class)
                 .setParameter("username", aUser.getUsername())
                 .setParameter("curator", PermissionLevel.CURATOR)
                 .setParameter("manager", PermissionLevel.MANAGER).getResultList();
